@@ -1,4 +1,6 @@
 require('dotenv').config()
+const session = require('express-session')
+const flash = require('connect-flash')
 const db = require('./model/db')
 const User = require('./model/User')
 const path = require('path')
@@ -18,9 +20,23 @@ app.use(express.json())
 app.engine('handlebars', hbs.engine())
 app.set('view engine', 'handlebars')
 
+app.use(session({
+  secret: process.env.SECRET,
+  saveUninitialized: true,
+  resave: true,
+}))
+
+app.use(flash())
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash('success')
+  res.locals.error = req.flash('error')
+
+  next()
+})
+
 // Routes
 const router = require('./router/router')
-const { BIG5_BIN } = require('mysql/lib/protocol/constants/charsets')
 app.use(router)
 
 // Listen

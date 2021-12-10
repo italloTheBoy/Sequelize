@@ -11,6 +11,12 @@
       id="name" 
       minlength="1"
       > 
+      {{#if err.insertName}}
+        <p class="form-text text-danger">{{err.insertName}}</p>
+      {{/if}}
+      {{#if err.invalidName}}
+        <p class="form-text text-danger">{{err.invalidName}}</p>
+      {{/if}}
 
     <label for="occupation" class="form-label mt-3">Ocupação</label>
     <input 
@@ -20,7 +26,7 @@
       name="occupation" 
       id="occupation" 
       minlength="1"
-      > 
+      required> 
 
     <section class="form-check mt-3">
       <input
