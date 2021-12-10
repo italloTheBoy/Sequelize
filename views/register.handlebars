@@ -1,0 +1,36 @@
+<form class="container card mt-2 w-50" action="/register" method="post">
+  <fieldset>
+    <legend class="form-title">Registrar-se</legend> <hr>
+
+    <label for="name" class="form-label">Nome</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Insira seu nome" 
+      name="name" 
+      id="name" 
+      minlength="1"
+      > 
+
+    <label for="occupation" class="form-label mt-3">Ocupação</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Insira sua ocupação" 
+      name="occupation" 
+      id="occupation" 
+      minlength="1"
+      > 
+
+    <section class="form-check mt-3">
+      <input
+        class="form-check-input"
+        type="checkbox" 
+        name="newsletter" 
+        id="newsletter">
+      <label class="form-check-label" for="newsletter">Enviar promoções</label>
+    </section>
+
+    <button type="submit" class="btn btn-primary mt-3">Registrar</button>
+  </fieldset>
+</form>
