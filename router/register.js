@@ -13,11 +13,13 @@ router.post('/', async (req, res) => {
   const error = {}
   
   
-  if (!name) error.insertName = 'Insira um nome' 
-  else if (name.trim() === '') error.invalidName = 'Nome invalido'
-  
-  if (!occupation) error.insertOccupation = 'Insira uma ocupação'
-  else if (occupation.trim() === '') error.invalidOccupation = 'Ocupação invalida'
+  if (!name || name.trim() === '') {
+    error.insertName = 'Insira um nome' 
+  }
+
+  if (!occupation || occupation.trim() === '') {
+    error.insertOccupation = 'Insira uma ocupação'
+  }
   
   if (newsletter === 'on') newsletter = true
   else newsletter = false
