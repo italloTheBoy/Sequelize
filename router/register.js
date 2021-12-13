@@ -16,24 +16,25 @@ router.post('/', async (req, res) => {
   if (!name) error.insertName = 'Insira um nome' 
   else if (name.trim() === '') error.invalidName = 'Nome invalido'
   
-  if (!occupation) error.push({ insertOccupation: 'Insira uma ocupação' })
-  else if (occupation.trim() === '') error.push({ invalidOccupation: 'Ocuoação invalida'})
+  if (!occupation) error.insertOccupation = 'Insira uma ocupação'
+  else if (occupation.trim() === '') error.invalidOccupation = 'Ocupação invalida'
   
-  if (newsletter && newsletter === 'on') {newsletter = 1}
-  else {newsletter = 0}
-  
+  if (newsletter === 'on') newsletter = true
+  else newsletter = false
+  console.log(newsletter)
+
 
   if (JSON.stringify(error) !== '{}') {
     res.status(401).render('register', { err: error })
   }
   else {
-    // await User.create({
-    //   name: name.trim().toLowerCase(),
-    //   occupation: occupation.trim().toLowerCase(),
-    //   newsletter
-    // })
-    //   .then(() => res.status(200).redirect('/'))
-    //   .catch(err => console.error(err))
+    await User.create({
+      name: name.trim().toLowerCase(),
+      occupation: occupation.trim().toLowerCase(),
+      newsletter,
+    })
+      .then(() => res.status(200).redirect('/'))
+      .catch(err => console.error(err))
   }
 })
 

@@ -10,15 +10,18 @@
       name="name" 
       id="name" 
       minlength="1"
-      > 
-      {{#if err.insertName}}
-        <p class="form-text text-danger">{{err.insertName}}</p>
-      {{/if}}
-      {{#if err.invalidName}}
-        <p class="form-text text-danger">{{err.invalidName}}</p>
-      {{/if}}
+    > 
+    {{#if err.insertName}}
+      <p class="form-text text-danger mb-1">{{err.insertName}}</p>
+    {{/if}}
+    {{#if err.invalidName}}
+      <p class="form-text text-danger">{{err.invalidName}}</p>
+    {{/if}}
+    {{#if err.existsName}}
+      <p class="form-text text-danger">{{err.existsName}}</p>
+    {{/if}}
 
-    <label for="occupation" class="form-label mt-3">Ocupação</label>
+    <label for="occupation" class="form-label mt-1">Ocupação</label>
     <input 
       type="text" 
       class="form-control" 
@@ -26,14 +29,22 @@
       name="occupation" 
       id="occupation" 
       minlength="1"
-      required> 
+    > 
+    {{#if err.insertOccupation}}
+      <p class="form-text text-danger">{{err.insertOccupation}}</p>
+    {{/if}}
+    {{#if err.invalidOccupation}}
+      <p class="form-text text-danger">{{err.invalidOccupation}}</p>
+    {{/if}}
+    
 
     <section class="form-check mt-3">
       <input
         class="form-check-input"
         type="checkbox" 
         name="newsletter" 
-        id="newsletter">
+        id="newsletter"
+      >
       <label class="form-check-label" for="newsletter">Enviar promoções</label>
     </section>
 
