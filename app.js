@@ -43,6 +43,6 @@ app.use(router)
 db.sync()
   .then(() => {
     const port = process.env.PORT || 3000
-    app.listen(port, () => console.log(`Running in http://localhost:${port}`))
+    app.listen(port, () => console.log(`\n Running in http://localhost:${port}`))
   })
   .catch(err => console.error(err))

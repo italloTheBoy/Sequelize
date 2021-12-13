@@ -23,7 +23,6 @@ router.post('/', async (req, res) => {
   
   if (newsletter === 'on') newsletter = true
   else newsletter = false
-  console.log(newsletter)
 
 
   if (JSON.stringify(error) !== '{}') {

@@ -1,9 +1,11 @@
 const { Router } = require('express')
 const router = Router()
+const User = require('../model/User')
 
 
-router.get('/', (req, res) => {
-  res.status(200).send('Hello World')
+router.get('/', async (req, res) => {
+  const user = await User.findAll({ attributes: ['name'], raw: true })
+  res.status(500).render('home', { user })
 })
 
 
