@@ -11,9 +11,11 @@ router.use('/register', reqister)
 const search = require('./search')
 router.use('/search', search)
 
-const destryoy = require('./destroy')
-router.use('/destroy', destryoy)
+const destroy = require('./destroy')
+router.use('/destroy', destroy)
 
+const edit = require('./edit')
+router.use('/edit', edit)
 
 
 module.exports = router

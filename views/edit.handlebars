@@ -1,0 +1,50 @@
+<form class="container card mt-2 w-50" action="/register" method="post">
+  <fieldset>
+    <legend class="form-title">Editar</legend> <hr>
+
+    <label for="name" class="form-label">Nome</label>
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Insira seu nome" 
+      name="name" 
+      id="name" 
+      minlength="1"
+      value="{{user.name}}"
+      required
+    > 
+    {{#if err.nameErr}}
+      <p class="form-text text-danger mb-1">{{err.nameErr}}</p>
+    {{/if}}
+
+    <label for="occupation" class="form-label mt-1">Ocupação</label>
+    <input
+      type="text" 
+      class="form-control" 
+      placeholder="Insira sua ocupação" 
+      name="occupation" 
+      id="occupation" 
+      minlength="1"
+      value="{{user.occupation}}"
+      required
+    > 
+    {{#if err.occupationErr}}
+      <p class="form-text text-danger">{{err.occupationErr}}</p>
+    {{/if}}
+
+    <section class="form-check mt-3">
+      <input
+        class="form-check-input"
+        type="checkbox" 
+        name="newsletter" 
+        id="newsletter"
+        {{#if check}}
+          checked
+        {{/if}}
+      >
+      <label class="form-check-label" for="newsletter">Enviar promoções</label>
+    </section>
+
+    <button type="submit" class="btn btn-primary mt-3">Editar</button>
+  </fieldset>
+</form>
