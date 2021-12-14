@@ -1,5 +1,7 @@
 <main class="container d-flex userBox mt-2">
   {{#each user}}
-    <h2 class="card item">{{name}}</h2>
+    <h2 class="card item text-capitalize bg-light">
+      <a href="/search/{{id}}">{{name}}</a>
+    </h2>
   {{/each}}
 </main>

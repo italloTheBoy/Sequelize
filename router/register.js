@@ -12,13 +12,23 @@ router.post('/', async (req, res) => {
   let { newsletter } = req.body
   const error = {}
   
-  
   if (!name || name.trim() === '') {
-    error.insertName = 'Insira um nome' 
+    error.nameErr = 'Insira um nome.' 
+  } 
+  else {
+    await User.findOne({
+      where: { name: name },
+      attributes: ['name'],
+      raw: true,
+    })
+      .then(user => {
+        if (user) error.nameErr = 'O Usuario ja existe.'
+      })
+      .catch(error => console.error(error))
   }
 
   if (!occupation || occupation.trim() === '') {
-    error.insertOccupation = 'Insira uma ocupação'
+    error.occupationErr = 'Insira uma ocupação.'
   }
   
   if (newsletter === 'on') newsletter = true

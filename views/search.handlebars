@@ -1,0 +1,27 @@
+<main class="container w-50 p-3 card mt-3 text-center">
+  <h1 class="text-capitalize">{{user.name}}</h1> <hr>
+  <p>
+    <span class="text-capitalize">{{user.name}}</span>
+    é um(a) {{user.occupation}}
+  </p>
+</main>
+
+<nav class="nav container w-50 justify-content-end">
+  <a class="btn btn-link nav-link active" href="/edit/{{user.id}}">Editar</a> 
+  
+  <form action="/destroy" method="post">
+    <input type="hidden" name="id" value="{{user.id}}">
+    <button 
+      type="submit" 
+      class="btn btn-link nav-link active"
+    >Deletar</button>
+  </form>
+
+</nav>
+
+{{!-- <aside class="container w-50 text-end">
+  <small>
+    <a href="/edit/{{user.id}}">Editar</a> |
+    <a href="/destroy/{{user.id}}">Deletar</a>
+  </small>
+</aside> --}}

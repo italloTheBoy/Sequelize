@@ -12,8 +12,8 @@
       minlength="1"
       required
     > 
-    {{#if err.insertName}}
-      <p class="form-text text-danger mb-1">{{err.insertName}}</p>
+    {{#if err.nameErr}}
+      <p class="form-text text-danger mb-1">{{err.nameErr}}</p>
     {{/if}}
 
     <label for="occupation" class="form-label mt-1">Ocupação</label>
@@ -26,8 +26,8 @@
       minlength="1"
       required
     > 
-    {{#if err.insertOccupation}}
-      <p class="form-text text-danger">{{err.insertOccupation}}</p>
+    {{#if err.occupationErr}}
+      <p class="form-text text-danger">{{err.occupationErr}}</p>
     {{/if}}
 
     <section class="form-check mt-3">
