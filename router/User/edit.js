@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const router = Router()
-const User = require('../model/User')
+const User = require('../../model/User')
 
 
 router.get('/:id', async (req, res) => {
@@ -11,7 +11,7 @@ router.get('/:id', async (req, res) => {
 
     if (!user) res.redirect('/404')
 
-    res.render('edit', { user })
+    res.render('user/edit', { user })
   }
   catch (err) {
     throw console.error(err)
@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
   }
 
   if (newsletter === 'on') newsletter = true
-  else newsletter = null
+  else newsletter = false
 
 
   //Redirect

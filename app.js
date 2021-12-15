@@ -2,6 +2,7 @@ require('dotenv').config()
 const session = require('express-session')
 const flash = require('connect-flash')
 const db = require('./model/db')
+const Address = require('./model/Address')
 const User = require('./model/User')
 const path = require('path')
 const express = require('express')
@@ -36,8 +37,11 @@ app.use((req, res, next) => {
 })
 
 // Routes
-const router = require('./router/router')
+const router = require('./router/global/router')
 app.use(router)
+
+const userRouter = require('./router/User/router')
+app.use('/User', userRouter)
 
 // 404
 app.use((req, res, next) => {

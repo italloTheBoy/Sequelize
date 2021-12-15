@@ -3,7 +3,7 @@ const router = Router()
 
 
 router.get('/', (req, res) => {
-  res.render('404')
+  res.render('global/404')
 })
 
 

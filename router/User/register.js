@@ -1,10 +1,10 @@
 const { Router } = require('express')
 const router = Router()
-const User = require('../model/User')
+const User = require('../../model/User')
 
 
 router.get('/', (req, res) => {
-  res.status(200).render('register')
+  res.status(200).render('user/register')
 })
 
 router.post('/', async (req, res) => {
@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
   }
   
   if (newsletter === 'on') newsletter = true
-  else newsletter = null
+  else newsletter = false
 
 
   if (JSON.stringify(error) !== '{}') {
@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
       id, newsletter
     }
 
-    res.status(401).render('edit', { user, err })
+    res.status(401).render('user/edit', { user, err })
   }
   else {
     await User.create({
@@ -54,6 +54,5 @@ router.post('/', async (req, res) => {
       .catch(err => console.error(err))
   }
 })
-
 
 module.exports = router

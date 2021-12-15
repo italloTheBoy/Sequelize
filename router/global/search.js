@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const router = Router()
-const User = require('../model/User')
+const User = require('../../model/User')
 
 
 router.get('/:id', async (req, res) => {
@@ -9,7 +9,7 @@ router.get('/:id', async (req, res) => {
   const user = await User.findByPk(id, {raw: true})
     .catch(err => console.error(err))
 
-  res.status(200).render('search', {user})
+  res.status(200).render('global/search', {user})
 })
 
 
