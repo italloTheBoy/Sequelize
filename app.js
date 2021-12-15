@@ -41,7 +41,10 @@ const router = require('./router/global/router')
 app.use(router)
 
 const userRouter = require('./router/User/router')
-app.use('/User', userRouter)
+app.use('/user', userRouter)
+
+const addressRouter = require('./router/address/router')
+app.use('/address', addressRouter)
 
 // 404
 app.use((req, res, next) => {
@@ -52,6 +55,6 @@ app.use((req, res, next) => {
 db.sync()
   .then(() => {
     const port = process.env.PORT || 3000
-    app.listen(port, () => console.log(`\n Running in http://localhost:${port}`))
+    app.listen(port, () => console.log(`\nRunning in http://localhost:${port}\n`))
   })
   .catch(err => console.error(err))

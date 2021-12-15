@@ -7,9 +7,9 @@
 </main>
 
 <nav class="nav container w-50 justify-content-end">
-  <a class="btn btn-link nav-link active" href="/edit/{{user.id}}">Editar</a> 
+  <a class="btn btn-link nav-link active" href="/user/edit/{{user.id}}">Editar</a> 
   
-  <form action="/destroy" method="post">
+  <form action="/user/destroy" method="post">
     <input type="hidden" name="id" value="{{user.id}}">
     <button 
       type="submit" 

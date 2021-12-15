@@ -78,10 +78,15 @@ router.post('/', async (req, res) => {
       occupation: occupation.trim().toLowerCase(),
       newsletter,
     }, { where: {id} })
-      .then(() => res.redirect(`/search/${id}`))
-      .catch(err => console.error(err))
-  }
-})
+      .then(() => {
+        res.redirect(`/search/${id}`)
+      })
+      .catch(err => {
+        res.status(500).redirect('/500')
+        throw console.error(err)
+      })
+  }  
+})     
 
 
 module.exports = router

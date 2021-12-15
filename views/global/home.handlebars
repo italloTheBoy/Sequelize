@@ -10,10 +10,10 @@
       <nav class="nav justify-content-end">
         <a 
           class="btn btn-primary btn-sm nav-link active me-2" 
-          href="/edit/{{id}}"
+          href="/user/edit/{{id}}"
         >Editar</a>
     
-        <form action="/destroy" method="post">
+        <form action="/user/destroy" method="post">
           <input type="hidden" name="id" value="{{id}}">
           <button
             type="submit"

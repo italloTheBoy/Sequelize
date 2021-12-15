@@ -1,0 +1,78 @@
+<form class="container card mt-2 w-50" action="/address/register" method="post">
+  <fieldset>
+    <legend class="form-title">Registrar Endereço</legend> <hr>
+
+    {{!-- Id --}}
+    <input type="hidden" name="userId" value="{{userId}}" class="form-label mt-1">
+    {{#if err.userId}}
+      <div class="form-text text-danger mb-1">{{err.userId}}</div>
+    {{/if}}
+
+    {{!-- City --}}
+    <label for="city" class="form-label mt-1">Cidade</label>
+    <input 
+      type="text"
+      name="city"
+      id="city"
+      value="{{city}}"
+      placeholder="Insira o nome de sua cidade"
+      class="form-control"
+      minlength="1"
+      required
+    >
+    {{#if err.city}}
+      <div class="form-text text-danger mb-1">{{err.city}}</div>
+    {{/if}}
+
+    {{!-- District --}}
+    <label for="district" class="form-label mt-1">Bairro</label>
+    <input 
+      type="text"
+      name="district"
+      id="district"
+      value="{{district}}"
+      placeholder="Insira o nome do seu bairro"
+      class="form-control"
+      minlength="1"
+      required
+    >
+    {{#if err.district}}
+      <div class="form-text text-danger mb-1">{{err.district}}</div>
+    {{/if}}
+
+    {{!-- Street --}}
+    <label for="street" class="form-label mt-1">Rua</label>
+    <input 
+      type="text"
+      name="street"
+      id="street"
+      value="{{street}}"
+      placeholder="Insira o nome da sua rua"
+      class="form-control"
+      minlength="1"
+      required
+    >
+    {{#if err.street}}
+      <div class="form-text text-danger mb-1">{{err.street}}</div>
+    {{/if}}
+
+    {{!-- Number --}}
+    <label for="number" class="form-label mt-1">Número</label>
+    <input 
+      type="text"
+      name="number"
+      id="number"
+      value="{{number}}"
+      placeholder="Insira o número da sua casa"
+      class="form-control"
+      minlength="1"
+      required
+    >
+    {{#if err.number}}
+      <div class="form-text text-danger mb-1">{{err.number}}</div>
+    {{/if}}
+
+    {{!-- Submit --}}
+    <button type="submit" class="btn btn-primary mt-3">Registrar Endereço</button>
+  </fieldset>
+</form>

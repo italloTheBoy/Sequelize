@@ -4,26 +4,26 @@ const User = require('./User')
 
 
 const Address = db.define('address', {
-  street: {
+  city: {
     type: DataTypes.STRING,
     allowNull: false,
-    required: true
+    required: true,
   },
   district: {
     type: DataTypes.STRING,
     allowNull: false,
     required: true,
   },
+  street: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    required: true
+  },
   number: {
     type: DataTypes.STRING,
     allowNull: false,
     required: true,
   },
-  city: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    required: true,
-  }
 }).belongsTo(User)
 
 
