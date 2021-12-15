@@ -32,11 +32,17 @@ router.post('/', async (req, res) => {
   }
   
   if (newsletter === 'on') newsletter = true
-  else newsletter = false
+  else newsletter = null
 
 
   if (JSON.stringify(error) !== '{}') {
-    res.status(401).render('register', { err: error })
+    const user = { 
+      name: name.trim(),
+      occupation: occupation.trim(),
+      id, newsletter
+    }
+
+    res.status(401).render('edit', { user, err })
   }
   else {
     await User.create({

@@ -1,7 +1,26 @@
 <main class="container d-flex userBox mt-2">
   {{#each user}}
-    <h2 class="card item text-capitalize bg-light">
-      <a href="/search/{{id}}">{{name}}</a>
-    </h2>
+    <div class="card item text-capitalize bg-light">
+      <h2>
+        <a class="card-link" href="/search/{{id}}">{{name}}</a>
+      </h2>
+
+      <hr>  
+
+      <nav class="nav justify-content-end">
+        <a 
+          class="btn btn-primary btn-sm nav-link active me-2" 
+          href="/edit/{{id}}"
+        >Editar</a>
+    
+        <form action="/destroy" method="post">
+          <input type="hidden" name="id" value="{{id}}">
+          <button
+            type="submit"
+            class="btn btn-danger btn-sm nav-link active"
+          >Deletar</button>
+        </form>
+      </nav>
+    </div>
   {{/each}}
 </main>

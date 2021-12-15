@@ -39,6 +39,11 @@ app.use((req, res, next) => {
 const router = require('./router/router')
 app.use(router)
 
+// 404
+app.use((req, res, next) => {
+  res.status(404).redirect('/404')
+})
+
 // Listen
 db.sync()
   .then(() => {

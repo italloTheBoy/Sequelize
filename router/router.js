@@ -17,5 +17,7 @@ router.use('/destroy', destroy)
 const edit = require('./edit')
 router.use('/edit', edit)
 
+const notFound = require('./404')
+router.use('/404', notFound)
 
 module.exports = router

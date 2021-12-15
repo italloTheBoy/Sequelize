@@ -17,5 +17,9 @@ body {
   padding: 20px;
   flex: 1 1 29%;
   max-width: 29%;
-  height: 100px;
+  height: auto;
+}
+
+.giant {
+  font-size: 15em
 }

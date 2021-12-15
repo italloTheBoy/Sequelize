@@ -14,9 +14,6 @@ const User = db.define('user', {
   },
   newsletter: {
     type: DataTypes.BOOLEAN,
-    defaultValue: false,
-    allowNull: false,
-    required: true,
   },
 })
 
