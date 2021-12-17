@@ -2,8 +2,23 @@
   <h1 class="text-capitalize">{{user.name}}</h1> <hr>
   <p>
     <span class="text-capitalize">{{user.name}}</span>
-    é um(a) {{user.occupation}}
+    é um(a) {{user.occupation}}.
   </p>
+
+  {{#if address}}
+  <p>
+    Endereço:
+    <span class="text-capitalize">
+      {{address.city}} - {{address.district}} -  {{address.street}} -  {{address.number}}
+    </span>
+  </p>
+  {{else}}
+  <p>
+    <span class="text-capitalize">{{user.name}}</span>
+    não possui endereço cadastrado,
+    <a href="/address/register/{{user.id}}">mas você pode registrar um aqui.</a>
+  </p>
+  {{/if}}
 </main>
 
 <nav class="nav container w-50 justify-content-end">

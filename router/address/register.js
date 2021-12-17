@@ -40,6 +40,20 @@ router.post('/', async (req, res) => {
       console.error(err)
       res.status(500).redirect('/500')
     })
+    
+    if (!err.userId) {
+      await Address.findOne({
+        where: { userId: userId },
+        attributes: ['userId'],
+      })
+      .then(user => {
+        if (user) err.userId = 'Este Id já possui um endereço cadastrado'
+      })
+      .catch(err => {
+        console.error(err)
+        res.status(500).redirect('/500')
+      })
+    }
   }
 
   // Val City

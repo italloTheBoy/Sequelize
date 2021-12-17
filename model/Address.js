@@ -25,7 +25,6 @@ const Address = db.define('address', {
     required: true,
   },
 })
-
 Address.belongsTo(User)
 
 
