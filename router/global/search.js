@@ -9,21 +9,25 @@ router.get('/:id', async (req, res) => {
 
   try {
     const user = await User.findByPk(id, {
+      where: {id: id},
+
       attributes: {
-        exclude: ['createdAt', 'updatedAt']
+        exclude: ['createdAt', 'updatedAt'],
       },
-      raw: true,
+
+      include: {
+        model: Address,
+        attributes: {
+          exclude: ['createdAt', 'updatedAt'],
+        },
+      },
     })
 
-    const address = await Address.findOne({
-      where: { userId: user.id },
-      attributes: {
-        exclude: ['createdAt', 'updatedAt', 'userId']
-      },
-      raw: true,
-    })
+    if (!user) return res.status(404).redirect('/404')
 
-    res.status(200).render('global/search', {user, address})
+    res.status(200).render('global/search', {
+      user: user.get({ plain: true })
+    })
 
   }catch (err) {
     console.log(err)

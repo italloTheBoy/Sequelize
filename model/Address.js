@@ -25,6 +25,7 @@ const Address = db.define('address', {
     required: true,
   },
 })
+User.hasOne(Address)
 Address.belongsTo(User)
 
 
