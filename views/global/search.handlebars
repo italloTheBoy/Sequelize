@@ -5,11 +5,13 @@
     é um(a) {{user.occupation}}.
   </p>
 
-  {{#if address}}
+  {{#if user.address}}
   <p>
     Endereço:
     <span class="text-capitalize">
-      {{address.city}} - {{address.district}} -  {{address.street}} -  {{address.number}}
+      {{#with user.address}}
+        {{this.city}} - {{district}} -  {{street}} -  {{number}}
+      {{/with}}
     </span>
   </p>
   {{else}}
