@@ -2,7 +2,6 @@ const {Router} = require('express')
 const router = Router()
 const Address = require('../../model/Address')
 const User = require('../../model/User')
-const val = require('./val')
 
 
 router.get('/:id', async (req, res) => {
@@ -76,7 +75,7 @@ router.post('/', async (req, res) => {
   // Val Number
   if (!number || number.trim() === '') err.number = 'Insira um número'
   else if (number.length < 3) err.number = 'O número deve ter no mínimo 2 caracteres'
-  else if (number.length > 50) err.number = 'O número deve ter no máximo 15 caracteres'
+  else if (number.lengt > 50) err.number = 'O número deve ter no máximo 15 caracteres'
   
   // Redirect
   if (Object.keys(err).length > 0) {

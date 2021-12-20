@@ -52,7 +52,6 @@
       {{#if user.address}}
         <hr class="dropdown-divider">
 
-        <li><a class="dropdown-item" href="/address/edit/{{user.id}}">Editar endereço</a></li>
         <li>
           <form action="/address/destroy" method="post">
             <input type="hidden" name="userId" value="{{user.id}}">
@@ -67,16 +66,3 @@
     </ul>
   </li>
 </ul>
-
-
-{{!-- <nav class="nav container w-50 justify-content-end">
-  <a class="btn btn-link nav-link active" href="/user/edit/{{user.id}}">Editar</a> 
-  
-  <form action="/user/destroy" method="post">
-    <input type="hidden" name="id" value="{{user.id}}">
-    <button 
-      type="submit" 
-      class="btn btn-link nav-link active"
-    >Deletar</button>
-  </form>
-</nav> --}}
