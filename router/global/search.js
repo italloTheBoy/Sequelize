@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
       include: {
         model: Address,
         attributes: {
-          exclude: ['createdAt', 'updatedAt'],
+          exclude: ['createdAt', 'updatedAt', 'userId'],
         },
       },
     })

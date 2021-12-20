@@ -17,7 +17,7 @@ const Address = db.define('address', {
   street: {
     type: DataTypes.STRING,
     allowNull: false,
-    required: true
+    required: true,
   },
   number: {
     type: DataTypes.STRING,

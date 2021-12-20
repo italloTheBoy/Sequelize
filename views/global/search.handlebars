@@ -10,20 +10,66 @@
     Endereço:
     <span class="text-capitalize">
       {{#with user.address}}
-        {{this.city}} - {{district}} -  {{street}} -  {{number}}
+        {{this.city}} - 
+        {{district}} -  
+        {{street}} -  
+        {{number}}
       {{/with}}
     </span>
   </p>
+
   {{else}}
   <p>
     <span class="text-capitalize">{{user.name}}</span>
     não possui endereço cadastrado,
     <a href="/address/register/{{user.id}}">mas você pode registrar um aqui.</a>
   </p>
+
   {{/if}}
 </main>
 
-<nav class="nav container w-50 justify-content-end">
+<ul class="container nav nav-pills w-50 justify-content-end">
+  <li class="nav-item dropdown">
+    <li 
+      class="nav-link dropdown-toggle" 
+      data-bs-toggle="dropdown" 
+      role="button"
+      aria-expanded="false"
+     >Opçoes
+    </li>
+
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/user/edit/{{user.id}}">Editar usuario</a></li>
+      <li>
+        <form action="/user/destroy" method="post">
+          <input type="hidden" name="id" value="{{user.id}}">
+          <button 
+            type="submit" 
+            class="dropdown-item"
+          >Deletar usuario</button>
+        </form>
+
+      {{#if user.address}}
+        <hr class="dropdown-divider">
+
+        <li><a class="dropdown-item" href="/address/edit/{{user.id}}">Editar endereço</a></li>
+        <li>
+          <form action="/address/destroy" method="post">
+            <input type="hidden" name="userId" value="{{user.id}}">
+            <input type="hidden" name="addressId" value="{{user.address.id}}">
+            <button 
+              type="submit" 
+              class="dropdown-item"
+            >Deletar endereço</button>
+          </form>
+        </li>
+      {{/if}}
+    </ul>
+  </li>
+</ul>
+
+
+{{!-- <nav class="nav container w-50 justify-content-end">
   <a class="btn btn-link nav-link active" href="/user/edit/{{user.id}}">Editar</a> 
   
   <form action="/user/destroy" method="post">
@@ -33,4 +79,4 @@
       class="btn btn-link nav-link active"
     >Deletar</button>
   </form>
-</nav>
+</nav> --}}

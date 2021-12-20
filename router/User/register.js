@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  const { name, occupation } = req.body
+  const { id, name, occupation } = req.body
   let { newsletter } = req.body
   const error = {}
   
